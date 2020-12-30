@@ -8,6 +8,7 @@ import {
 
 
 import './index.css';
+import './eyes.js';
 
 
 class Main extends React.Component{
@@ -24,18 +25,38 @@ class Main extends React.Component{
   handleViews () {
     switch(this.state.current_view){
       case 0:
-        return <Front onClick = {()=> this.handleClick()}/>
+      return <Front onClick = {()=> this.handleClick()}/>
       case 1:
-        return <Questions />
+      return <Questions />
     }
   }
   render(){
     var current_view = this.state.current_view;
     return (<div>
-      <TransitionGroup>
-        {(current_view === 0) && (<CSSTransition key={1} timeout={700} classNames="pageTransition" unmountOnExit><Front onClick = {()=> this.handleClick()}/></CSSTransition>)}
-        {(current_view === 1) && (<CSSTransition key={2} timeout={700} classNames="pageTransition" unmountOnExit><Questions /></CSSTransition>)}
+      <TransitionGroup id="transitionGroup">
+      {(current_view === 0) && (<CSSTransition key={1} timeout={700} classNames="pageTransition" unmountOnExit><Front onClick = {()=> this.handleClick()}/></CSSTransition>)}
+      {(current_view === 1) && (<CSSTransition key={2} timeout={700} classNames="pageTransition" unmountOnExit><Questions /></CSSTransition>)}
       </TransitionGroup>
+      </div>
+    );
+  }
+}
+
+
+
+class Eye extends React.Component{
+  pass_f(){
+    console.log("hehehe");
+    // window.moveEyes();
+  }
+  componentDidMount(){
+    this.pass_f();
+  }
+
+  render(){
+    return(
+      <div id="eyeContainer" className='eyeContainer'>
+        <div className='eye'><div className='pupil' id='pupil'></div></div>
       </div>
     );
   }
@@ -45,6 +66,7 @@ class Front extends React.Component {
   render() {
     return (
       <div className="page">
+        <Eye />
       <h1>
       narcissism
       </h1>
@@ -60,6 +82,7 @@ class Questions extends React.Component{
   render() {
     return (
       <div className="page">
+      <Eye />
       Questions go here
       </div>
     );

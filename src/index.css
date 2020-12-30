@@ -56,19 +56,105 @@ button{
   opacity: 0.01;
   left: 100vw;
 }
+.pageTransition-enter .eyeContainer{
+  position: fixed;
+  top: 30vh;
+  left: 0vh;
+  transition: all 700ms;
+}
 
 .pageTransition-enter-active{
   opacity: 1;
   left: 0;
   transition: all 700ms;
 }
+.pageTransition-enter-active .eyeContainer{
+  position: fixed;
+  top: 10vh;
+  left: 0vh;
+  transition: all 700ms;
+}
+.pageTransition-enter-done .eyeContainer{
+    position: fixed;
+    top: 10vh;
+    left: 0vh;
+    transition: all 700ms;
+}
 
 .pageTransition-exit{
   left: 0;
   opacity: 1;
 }
+
+.pageTransition-exit .eyeContainer{
+  position: fixed;
+  top: 30vh;
+  left: 0vh;
+  transition: all 700ms;
+}
 .pageTransition-exit-active{
   opacity: 0.01;
   left: -100vw;
   transition: all 700ms;
+}
+.pageTransition-exit-active .eyeContainer{
+  position: fixed;
+  top: 10vh;
+  left: 0vh;
+  opacity: 1!important;
+  transition: all 700ms;
+}
+
+
+
+.eyeContainer{
+  position: fixed;
+  top: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width:100vw;
+  transition: all 700ms;
+}
+
+.eye {
+  height: 4rem;
+  width: 4rem;
+  border: solid 0.4rem #FFF;
+  border-radius:  75% 3%;
+  position: relative;
+  transform: rotate(45deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.pupil{
+  transform: rotate(90deg);
+  /* background: #CCC; */
+  /* background: transparent; */
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  /* cant do transition because it loops round, maybe try fix */
+  transition: all 300ms;
+}
+.pupil:after { /*pupil*/
+  position: absolute;
+  bottom: 1.4rem;
+  right: 0.8rem;
+  width: 1.5rem;
+  height: 1.4rem;
+  /* background: white; */
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  border: 0.4rem solid white;
+  border-radius: 50%;
+  content: " ";
 }
