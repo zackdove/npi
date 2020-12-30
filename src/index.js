@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
+
+
+
 import './index.css';
 
 
@@ -24,13 +30,15 @@ class Main extends React.Component{
     }
   }
   render(){
-    const current_view = this.state.current_view;
-    return (
-      <TransitionGroup component={null}>
-        {this.handleViews()}
-    </TransitionGroup>
-  );
-}
+    var current_view = this.state.current_view;
+    return (<div>
+      <TransitionGroup>
+        {(current_view === 0) && (<CSSTransition key={1} timeout={700} classNames="pageTransition" unmountOnExit><Front onClick = {()=> this.handleClick()}/></CSSTransition>)}
+        {(current_view === 1) && (<CSSTransition key={2} timeout={700} classNames="pageTransition" unmountOnExit><Questions /></CSSTransition>)}
+      </TransitionGroup>
+      </div>
+    );
+  }
 }
 
 class Front extends React.Component {
@@ -51,7 +59,7 @@ class Front extends React.Component {
 class Questions extends React.Component{
   render() {
     return (
-      <div>
+      <div className="page">
       Questions go here
       </div>
     );
