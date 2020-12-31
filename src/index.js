@@ -10,6 +10,7 @@ import {
 import './index.css';
 import './eyes.js';
 
+var g_rot = 90;
 
 class Main extends React.Component{
   constructor(props){
@@ -45,18 +46,38 @@ class Main extends React.Component{
 
 
 class Eye extends React.Component{
-  pass_f(){
-    console.log("hehehe");
-    // window.moveEyes();
-  }
-  componentDidMount(){
-    this.pass_f();
+  constructor(props){
+    super(props);
+    this.state = {rot: g_rot};
+    this.containerRef = React.createRef();
   }
 
+  handleMouseMove(e){
+    // console.log(e.pageX);
+    let rect = this.containerRef.current.getBoundingClientRect();
+    // console.log(rect.width)
+    let x = (rect.left) + (rect.width/2);
+    let y = (rect.top) + (rect.height/2);
+    var rad = Math.atan2(e.pageX - x, e.pageY - y);
+    let new_rot = ((rad * (180 / Math.PI) * -1) + 180 -45);
+    new_rot = ((new_rot % 360) + 360) % 360;
+    var apparent_rot;
+    // this.rot = this.rot || 0;
+    apparent_rot = this.state.rot % 360;
+    if ( apparent_rot < 0 ) { apparent_rot += 360; }
+    if ( apparent_rot < 180 && (new_rot > (apparent_rot + 180)) ) { this.state.rot -= 360; }
+    if ( apparent_rot >= 180 && (new_rot <= (apparent_rot - 180)) ) { this.state.rot += 360; }
+    this.setState({rot: (this.state.rot+ new_rot - apparent_rot)}   );
+    g_rot = this.state.rot;
+    console.log(this.state.rot);
+  }
   render(){
+    // var {rot} = this.state;
     return(
-      <div id="eyeContainer" className='eyeContainer'>
-        <div className='eye'><div className='pupil' id='pupil'></div></div>
+      <div id="eyeContainer" className='eyeContainer' ref={this.containerRef} onMouseMove={this.handleMouseMove.bind(this)}>
+        <div className='eye'>
+          <div className='pupil' id='pupil' style={{transform: "rotate("+this.state.rot+"deg)"}}></div>
+        </div>
       </div>
     );
   }
@@ -66,7 +87,7 @@ class Front extends React.Component {
   render() {
     return (
       <div className="page">
-        <Eye />
+        <Eye value={g_rot}/>
       <h1>
       narcissism
       </h1>
@@ -82,7 +103,7 @@ class Questions extends React.Component{
   render() {
     return (
       <div className="page">
-      <Eye />
+      <Eye value={g_rot}/>
       Questions go here
       </div>
     );
