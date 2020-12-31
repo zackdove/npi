@@ -8,7 +8,7 @@ import {
 
 
 import './index.css';
-import './eyes.js';
+
 
 var g_rot = 90;
 
@@ -52,9 +52,13 @@ class Eye extends React.Component{
     this.containerRef = React.createRef();
   }
 
-  handleMouseMove(e){
+  componentDidMount(){
+    document.addEventListener("mousemove", this.moveEyes)
+  }
+
+  moveEyes = (e) => {
     // console.log(e.pageX);
-    let rect = this.containerRef.current.getBoundingClientRect();
+    let rect = document.getElementById("eyeContainer").getBoundingClientRect();
     // console.log(rect.width)
     let x = (rect.left) + (rect.width/2);
     let y = (rect.top) + (rect.height/2);
@@ -74,7 +78,7 @@ class Eye extends React.Component{
   render(){
     // var {rot} = this.state;
     return(
-      <div id="eyeContainer" className='eyeContainer' ref={this.containerRef} onMouseMove={this.handleMouseMove.bind(this)}>
+      <div id="eyeContainer" className='eyeContainer'>
         <div className='eye'>
           <div className='pupil' id='pupil' style={{transform: "rotate("+this.state.rot+"deg)"}}></div>
         </div>
