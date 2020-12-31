@@ -53,7 +53,11 @@ class Eye extends React.Component{
   }
 
   componentDidMount(){
-    document.addEventListener("mousemove", this.moveEyes)
+    document.addEventListener("mousemove", this.moveEyes);
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("mousemove", this.moveEyes);
   }
 
   moveEyes = (e) => {
