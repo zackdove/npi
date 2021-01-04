@@ -34,12 +34,51 @@ class Main extends React.Component{
     console.log(this.state.answers);
   }
   render(){
+    // This method is ugly, since CSSTransition plays weirdly - cannot loop
     var current_view = this.state.current_view;
     return (<div>
       <TransitionGroup id="transitionGroup">
       {(current_view === 0) && (<CSSTransition key={0} timeout={700} classNames="pageTransition" unmountOnExit><Front next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 1) && (<CSSTransition key={1} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={1} answer={(a) => this.handleAnswer(1, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 2) && (<CSSTransition key={2} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={2} answer={(a) => this.handleAnswer(2, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 3) && (<CSSTransition key={3} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={3} answer={(a) => this.handleAnswer(3, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 4) && (<CSSTransition key={4} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={4} answer={(a) => this.handleAnswer(4, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 5) && (<CSSTransition key={5} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={5} answer={(a) => this.handleAnswer(5, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 6) && (<CSSTransition key={6} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={6} answer={(a) => this.handleAnswer(6, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 7) && (<CSSTransition key={7} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={7} answer={(a) => this.handleAnswer(7, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 8) && (<CSSTransition key={8} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={8} answer={(a) => this.handleAnswer(8, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 9) && (<CSSTransition key={9} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={9} answer={(a) => this.handleAnswer(9, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 10) && (<CSSTransition key={10} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={10} answer={(a) => this.handleAnswer(10, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 11) && (<CSSTransition key={11} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={11} answer={(a) => this.handleAnswer(11, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 12) && (<CSSTransition key={12} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={12} answer={(a) => this.handleAnswer(12, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 13) && (<CSSTransition key={13} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={13} answer={(a) => this.handleAnswer(13, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 14) && (<CSSTransition key={14} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={14} answer={(a) => this.handleAnswer(14, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 15) && (<CSSTransition key={15} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={15} answer={(a) => this.handleAnswer(15, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 16) && (<CSSTransition key={16} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={16} answer={(a) => this.handleAnswer(16, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 17) && (<CSSTransition key={17} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={17} answer={(a) => this.handleAnswer(17, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 18) && (<CSSTransition key={18} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={18} answer={(a) => this.handleAnswer(18, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 19) && (<CSSTransition key={19} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={19} answer={(a) => this.handleAnswer(19, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 20) && (<CSSTransition key={20} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={20} answer={(a) => this.handleAnswer(20, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 21) && (<CSSTransition key={21} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={21} answer={(a) => this.handleAnswer(21, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 22) && (<CSSTransition key={22} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={22} answer={(a) => this.handleAnswer(22, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 23) && (<CSSTransition key={23} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={23} answer={(a) => this.handleAnswer(23, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 24) && (<CSSTransition key={24} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={24} answer={(a) => this.handleAnswer(24, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 25) && (<CSSTransition key={25} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={25} answer={(a) => this.handleAnswer(25, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 26) && (<CSSTransition key={26} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={26} answer={(a) => this.handleAnswer(26, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 27) && (<CSSTransition key={27} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={27} answer={(a) => this.handleAnswer(27, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 28) && (<CSSTransition key={28} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={28} answer={(a) => this.handleAnswer(28, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 29) && (<CSSTransition key={29} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={29} answer={(a) => this.handleAnswer(29, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 30) && (<CSSTransition key={30} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={30} answer={(a) => this.handleAnswer(30, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 31) && (<CSSTransition key={31} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={31} answer={(a) => this.handleAnswer(31, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 32) && (<CSSTransition key={32} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={32} answer={(a) => this.handleAnswer(32, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 33) && (<CSSTransition key={33} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={33} answer={(a) => this.handleAnswer(33, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 34) && (<CSSTransition key={34} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={34} answer={(a) => this.handleAnswer(34, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 35) && (<CSSTransition key={35} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={35} answer={(a) => this.handleAnswer(35, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 36) && (<CSSTransition key={36} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={36} answer={(a) => this.handleAnswer(36, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 37) && (<CSSTransition key={37} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={37} answer={(a) => this.handleAnswer(37, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 38) && (<CSSTransition key={38} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={38} answer={(a) => this.handleAnswer(38, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 39) && (<CSSTransition key={39} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={39} answer={(a) => this.handleAnswer(39, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 40) && (<CSSTransition key={40} timeout={700} classNames="pageTransition" unmountOnExit><Questions value={40} answer={(a) => this.handleAnswer(40, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
       </TransitionGroup>
       </div>
     );
