@@ -6,3 +6,6 @@ Eye following cursor
 3D narcissim, could put on about
 eye moves to top on click go
 lashes for eye
+
+find a way of storing the scores in the main component then pass to questions,
+look at squares in tutorial https://reactjs.org/tutorial/tutorial.html
