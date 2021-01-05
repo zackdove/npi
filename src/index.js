@@ -134,11 +134,11 @@ class Eye extends React.Component{
     // this.rot = this.rot || 0;
     apparent_rot = this.state.rot % 360;
     if ( apparent_rot < 0 ) { apparent_rot += 360; }
-    if ( apparent_rot < 180 && (new_rot > (apparent_rot + 180)) ) { this.state.rot -= 360; }
-    if ( apparent_rot >= 180 && (new_rot <= (apparent_rot - 180)) ) { this.state.rot += 360; }
+    if ( apparent_rot < 180 && (new_rot > (apparent_rot + 180)) ) { this.setState({rot: (this.state.rot - 360)})}
+    if ( apparent_rot >= 180 && (new_rot <= (apparent_rot - 180)) ){ this.setState({rot: (this.state.rot + 360)})}
     this.setState({rot: (this.state.rot+ new_rot - apparent_rot)}   );
     g_rot = this.state.rot;
-    console.log(this.state.rot);
+    // console.log(this.state.rot);
   }
   render(){
     // var {rot} = this.state;
@@ -194,12 +194,16 @@ class Questions extends React.Component{
     return (
       <div className="page">
         <Eye value={g_rot}/>
-        <h1>{this.props.value}.</h1>
-        <div onChange={this.onChangeValue}>
-          <input type="radio" value="A" name={this.props.value} required/>A. {this.getA()}
-          <input type="radio" value="B" name={this.props.value}/>B. {this.getB()}
+        <h1>{this.props.value}</h1>
+        <div onChange={this.onChangeValue} className="answerContainer">
+          <label className="answerLabel" htmlFor="A">
+            <input className="hidden" type="radio" value="A" id="A" name={this.props.value} required/>{this.getA()}
+          </label>
+          <label className="answerLabel" htmlFor="B">
+            <input className="hidden" type="radio" value="B" id="B" name={this.props.value}/>{this.getB()}
+          </label>
         </div>
-        <button onClick={() => this.handleNext()}>submit</button>
+        {/*<button onClick={() => this.handleNext()}>submit</button>*/}
       </div>
     );
   }
@@ -215,7 +219,7 @@ class Results extends React.Component{
   calculateResults(){
     for (var i = 1; i<41; i++){
       console.log(i);
-      if (this.props.answers[i-1]==points_matches[i-1]){
+      if (this.props.answers[i-1]===points_matches[i-1]){
         points++;
         if (authority_matches.includes(i)){
           authority_points++;
@@ -241,6 +245,7 @@ class Results extends React.Component{
       }
       console.log(points);
     }
+    // Just to seem more natural
     setTimeout(() => {
       this.setState({loaded: 1});
     }, 3000);
@@ -251,11 +256,11 @@ class Results extends React.Component{
   render(){
     return(
       <div className="page">
-        {(this.state.loaded ==0) &&(
+        {(this.state.loaded ===0) &&(
           <div>Calculating your score
           </div>
         )}
-        {(this.state.loaded ==1) &&(
+        {(this.state.loaded ===1) &&(
           <div>
             <div>narcissitic personality inventory scores</div>
             <div>total : {points} out of 40</div>
