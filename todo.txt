@@ -9,3 +9,6 @@ lashes for eye
 
 find a way of storing the scores in the main component then pass to questions,
 look at squares in tutorial https://reactjs.org/tutorial/tutorial.html
+
+For eye, put it back into main rather than children, then in handleClick(),
+just change class...
