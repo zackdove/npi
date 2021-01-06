@@ -68,6 +68,7 @@ button{
   opacity: 1;
   left: 0;
   transition: all 700ms;
+  transition-delay: 300ms;
 }
 .pageTransition-enter-active .eyeContainer{
   position: fixed;
@@ -97,6 +98,7 @@ button{
   opacity: 0.01;
   left: -100vw;
   transition: all 700ms;
+  transition-delay: 300ms;
 }
 .pageTransition-exit-active .eyeContainer{
   position: fixed;
@@ -178,15 +180,18 @@ button{
   margin: 1rem;
   padding: 0.5rem;
   border: 0.3rem;
-  border-radius: 2rem;
-  border-color: white;
+  border-radius: 1rem;
+  border-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1)!important;
   border-style: solid;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-transition: background-color 500ms;
+  transition: color 1000ms;
+  transition: background-color 500ms;
+  transition: border-color 300ms;
 }
 
 .answerLabel:active{
@@ -200,4 +205,9 @@ transition: background-color 500ms;
 
 .hidden{
   display: none;
+}
+
+.fadeLabel{
+  color: rgba(255,255,255,0)!important;
+  border-color: rgba(255,255,255,0);
 }
