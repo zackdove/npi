@@ -53,7 +53,12 @@ class Main extends React.Component{
     this.setState({answers: answers});
     console.log(this.state.answers);
   }
-
+  setView(x){
+    this.setState({current_view: x})
+  }
+  showAbout(){
+    this.setView(-1);
+  }
   render(){
     // This method is ugly, since CSSTransition plays weirdly - cannot loop.
     // This is a quick fix, will find a better way.
@@ -61,7 +66,9 @@ class Main extends React.Component{
     return (<div>
       <Eye value={g_rot}/>
       <TransitionGroup id="transitionGroup">
+      {(current_view === -1) && (<CSSTransition key={-1} timeout={1000} classNames="pageTransition" unmountOnExit><Front next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 0) && (<CSSTransition key={0} timeout={1000} classNames="pageTransition" unmountOnExit><Front next = {()=> this.handleNext()}/></CSSTransition>)}
+      {(current_view === 0.5) && (<CSSTransition key={0.5} timeout={1000} classNames="pageTransition" unmountOnExit><Intro next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 1) && (<CSSTransition key={1} timeout={1000} classNames="pageTransition" unmountOnExit><Questions value={1} answer={(a) => this.handleAnswer(1, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 2) && (<CSSTransition key={2} timeout={1000} classNames="pageTransition" unmountOnExit><Questions value={2} answer={(a) => this.handleAnswer(2, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 3) && (<CSSTransition key={3} timeout={1000} classNames="pageTransition" unmountOnExit><Questions value={3} answer={(a) => this.handleAnswer(3, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
@@ -106,7 +113,7 @@ class Main extends React.Component{
       </TransitionGroup>
       <div id="footerContainer">
         <span id="footer">
-        <a href="/about">about</a>
+        <a href="#" onClick={() => this.showAbout()}>about</a>
         <a href="/privacy">privacy</a>
         </span>
       </div>
@@ -289,6 +296,28 @@ class Results extends React.Component{
             <div>entitlement : {entitlement_points} out of 6</div>
           </div>
         )}
+      </div>
+    );
+  }
+}
+
+class Intro extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  handleNext(){
+    this.props.next();
+  }
+  render(){
+    return(
+      <div class="page">
+      <div>
+      This test consists of 40 pairs of statements, with which you may or may not identify. The test should take between 5 and 10 minutes.
+      </div>
+      <div>
+        You may identify with both statments. In this case you should choose the statement which seems closer to yourself.  Or, if you do not identify with either statement, select the one which is least objectionable or remote. In other words, read each pair of statements and then choose the one that is closer to you rown feelings.
+      </div>
+      <button onClick={() => this.handleNext()}>begin</button>
       </div>
     );
   }

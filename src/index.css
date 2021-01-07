@@ -52,6 +52,7 @@ button{
   font: 1.3rem "Monsterrat", sans-serif;
   padding: 0.6rem 1rem 0.6rem 1rem;
   outline:none;
+  cursor: pointer;
 }
 
 .pageTransition-enter{
