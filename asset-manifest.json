@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/npi/static/css/main.a23d44d1.chunk.css",
-    "main.js": "/npi/static/js/main.eeed2226.chunk.js",
-    "main.js.map": "/npi/static/js/main.eeed2226.chunk.js.map",
+    "main.css": "/npi/static/css/main.418c6a84.chunk.css",
+    "main.js": "/npi/static/js/main.5227fc53.chunk.js",
+    "main.js.map": "/npi/static/js/main.5227fc53.chunk.js.map",
     "runtime-main.js": "/npi/static/js/runtime-main.c5f344a6.js",
     "runtime-main.js.map": "/npi/static/js/runtime-main.c5f344a6.js.map",
     "static/js/2.dc564264.chunk.js": "/npi/static/js/2.dc564264.chunk.js",
     "static/js/2.dc564264.chunk.js.map": "/npi/static/js/2.dc564264.chunk.js.map",
     "index.html": "/npi/index.html",
-    "static/css/main.a23d44d1.chunk.css.map": "/npi/static/css/main.a23d44d1.chunk.css.map",
+    "static/css/main.418c6a84.chunk.css.map": "/npi/static/css/main.418c6a84.chunk.css.map",
     "static/js/2.dc564264.chunk.js.LICENSE.txt": "/npi/static/js/2.dc564264.chunk.js.LICENSE.txt",
     "static/media/index.css": "/npi/static/media/Montserrat-SemiBold.fa8441f3.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.c5f344a6.js",
     "static/js/2.dc564264.chunk.js",
-    "static/css/main.a23d44d1.chunk.css",
-    "static/js/main.eeed2226.chunk.js"
+    "static/css/main.418c6a84.chunk.css",
+    "static/js/main.5227fc53.chunk.js"
   ]
 }
