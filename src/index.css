@@ -30,7 +30,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 15vh;
+    height: 85vh;
     width: 100vw;
     position: absolute;
     text-align: center;
@@ -57,7 +58,7 @@ button{
   opacity: 0.01;
   left: 100vw;
 }
-.pageTransition-enter .eyeContainer{
+.eyeContainer.front{
   position: fixed;
   top: 30vh;
   left: 0vh;
@@ -70,17 +71,11 @@ button{
   transition: all 700ms;
   transition-delay: 300ms;
 }
-.pageTransition-enter-active .eyeContainer{
+.eyeContainer.top{
   position: fixed;
   top: 10vh;
   left: 0vh;
   transition: all 700ms;
-}
-.pageTransition-enter-done .eyeContainer{
-    position: fixed;
-    top: 10vh;
-    left: 0vh;
-    transition: all 700ms;
 }
 
 .pageTransition-exit{
@@ -88,25 +83,18 @@ button{
   opacity: 1;
 }
 
-.pageTransition-exit .eyeContainer{
-  position: fixed;
-  top: 30vh;
-  left: 0vh;
-  transition: all 700ms;
-}
+
 .pageTransition-exit-active{
   opacity: 0.01;
   left: -100vw;
   transition: all 700ms;
   transition-delay: 300ms;
 }
-.pageTransition-exit-active .eyeContainer{
-  position: fixed;
-  top: 10vh;
-  left: 0vh;
-  opacity: 1!important;
-  transition: all 700ms;
+
+.pageTransition-exit-active .answerLabel:hover{
+  background-color: transparent;
 }
+
 
 
 
@@ -182,7 +170,7 @@ button{
   border: 0.3rem;
   border-radius: 1rem;
   border-color: rgba(255, 255, 255, 1);
-  color: rgba(255, 255, 255, 1)!important;
+  color: rgba(255, 255, 255, 1);
   border-style: solid;
   text-align: center;
   display: flex;
@@ -208,6 +196,6 @@ button{
 }
 
 .fadeLabel{
-  color: rgba(255,255,255,0)!important;
+  color: rgba(255,255,255,0);
   border-color: rgba(255,255,255,0);
 }

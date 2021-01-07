@@ -41,6 +41,10 @@ class Main extends React.Component{
   handleNext(){
     // alert("hello");
     const next_view = this.state.current_view + 1;
+    if (this.state.current_view === 0){
+      let eyeContainer = document.getElementById("eyeContainer");
+      eyeContainer.classList.add("top");
+    }
     this.setState({current_view: next_view});
   }
   handleAnswer(i, a){
@@ -55,6 +59,7 @@ class Main extends React.Component{
     // This is a quick fix, will find a better way.
     var current_view = this.state.current_view;
     return (<div>
+      <Eye value={g_rot}/>
       <TransitionGroup id="transitionGroup">
       {(current_view === 0) && (<CSSTransition key={0} timeout={1000} classNames="pageTransition" unmountOnExit><Front next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 1) && (<CSSTransition key={1} timeout={1000} classNames="pageTransition" unmountOnExit><Questions value={1} answer={(a) => this.handleAnswer(1, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
@@ -156,7 +161,7 @@ class Front extends React.Component {
   render() {
     return (
       <div className="page">
-        <Eye value={g_rot}/>
+
       <h1>
       narcissism
       </h1>
@@ -200,7 +205,6 @@ class Questions extends React.Component{
   render() {
     return (
       <div className="page">
-        <Eye value={g_rot}/>
         <h1>{this.props.value}</h1>
         <div onChange={this.onChangeValue} className="answerContainer">
           <label id="aLabel" className="answerLabel" htmlFor="A">
@@ -264,8 +268,7 @@ class Results extends React.Component{
     return(
       <div className="page">
         {(this.state.loaded ===0) &&(
-          <div>Calculating your score
-          </div>
+          <SplitText copy="calculating your results" role="heading" />
         )}
         {(this.state.loaded ===1) &&(
           <div>
@@ -283,6 +286,22 @@ class Results extends React.Component{
       </div>
     );
   }
+}
+
+// From https://fossheim.io/writing/posts/react-text-splitting/
+class SplitText extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+        <span aria-label={this.props.copy} role={this.props.role}>
+        {this.props.copy.split("").map(function(char, index){
+            return <span aria-hidden="true" key={index}>{char}</span>;
+        })}
+        </span>
+    );
+}
 }
 
 
