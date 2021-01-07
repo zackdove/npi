@@ -104,6 +104,12 @@ class Main extends React.Component{
       {(current_view === 40) && (<CSSTransition key={40} timeout={1000} classNames="pageTransition" unmountOnExit><Questions value={40} answer={(a) => this.handleAnswer(40, a)} next = {()=> this.handleNext()}/></CSSTransition>)}
       {(current_view === 41) && (<CSSTransition key={41} timeout={1000} classNames="pageTransition" unmountOnExit><Results answers={this.state.answers}/></CSSTransition>)}
       </TransitionGroup>
+      <div id="footerContainer">
+        <span id="footer">
+        <a href="/about">about</a>
+        <a href="/privacy">privacy</a>
+        </span>
+      </div>
       </div>
     );
   }
