@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/npi/static/css/main.7392cf17.chunk.css",
+    "main.js": "/npi/static/js/main.f447fc5b.chunk.js",
+    "main.js.map": "/npi/static/js/main.f447fc5b.chunk.js.map",
+    "runtime-main.js": "/npi/static/js/runtime-main.c5f344a6.js",
+    "runtime-main.js.map": "/npi/static/js/runtime-main.c5f344a6.js.map",
+    "static/js/2.dc564264.chunk.js": "/npi/static/js/2.dc564264.chunk.js",
+    "static/js/2.dc564264.chunk.js.map": "/npi/static/js/2.dc564264.chunk.js.map",
+    "index.html": "/npi/index.html",
+    "static/css/main.7392cf17.chunk.css.map": "/npi/static/css/main.7392cf17.chunk.css.map",
+    "static/js/2.dc564264.chunk.js.LICENSE.txt": "/npi/static/js/2.dc564264.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/npi/static/media/Montserrat-SemiBold.fa8441f3.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5f344a6.js",
+    "static/js/2.dc564264.chunk.js",
+    "static/css/main.7392cf17.chunk.css",
+    "static/js/main.f447fc5b.chunk.js"
+  ]
+}
